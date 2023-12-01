@@ -17,7 +17,6 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "managefaster/database": "*",
         "php": "^8.0",
         "laravel/framework": "^8.0"
     }
