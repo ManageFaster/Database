@@ -1,0 +1,22 @@
+{
+    "name": "managefaster/database",
+    "description": "Overaide model base eloqunt and database functionality with encryt function and uuid",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Managefaster\\Database\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Robertas Lekavičius",
+            "email": "robertas.lekavicius.rl@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.0",
+        "laravel/framework": "^8.0"
+    }
+}
