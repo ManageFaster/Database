@@ -14,8 +14,7 @@
             "email": "robertas.lekavicius.rl@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
-    "prefer-stable": true,
+    "minimum-stability": "dev",
     "require": {
         "php": "^8.0",
         "laravel/framework": "^8.0"
