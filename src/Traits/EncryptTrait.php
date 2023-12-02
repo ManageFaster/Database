@@ -5,15 +5,18 @@ namespace Managefaster\Database\Traits;
 trait EncryptTrait
 {
     private function encryptString($value): string {
-        return "BINARY(HEX(AES_ENCRYPT(N'$value', '$this->encryptKey')))";
+        return $this->placeValuesToString(config('database.encrypt_string'), $value);
     }
 
     private function decryptString($value): string {
-//        return "CONVERT(AES_DECRYPT(BINARY(UNHEX($value)), '{$this->encryptKey}') USING UTF8)";
-        return "AES_DECRYPT(UNHEX('$value'), '$this->encryptKey')";
+        return $this->placeValuesToString(config('database.decrypt_string'), $value);
     }
 
     public function decryptKey($column, $operator = '='): string {
-        return "CONVERT(AES_DECRYPT(BINARY(UNHEX($column)), '{$this->encryptKey}') USING UTF8) $operator ?";
+        return $this->decryptString($column) . " $operator ?";
+    }
+
+    private function placeValuesToString($string, $value) {
+        return sprintf($string, $value, $this->encryptKey);
     }
 }
