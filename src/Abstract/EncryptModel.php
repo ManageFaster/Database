@@ -50,9 +50,9 @@ abstract class EncryptModel extends Model
 
 
     public function scopeWhereEncrypted($query, $column, $operator = null, $value = null, $boolean = 'and') {
-         if (is_array($column)) {
+        if (is_array($column)) {
             return Database::addArrayOfWheres($query, $column, $boolean);
-         }
+        }
 
         [$value, $operator] = Database::prepareValueAndOperator($value, $operator, func_num_args() === 3);
 

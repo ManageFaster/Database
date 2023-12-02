@@ -12,7 +12,10 @@ class Database extends Facade
     /**
      * @method static Expression encrypt(string|null|int|float $value)
      * @method static decrypt(string|null|int|float $value)
-     * @method static Builder whereRaw(Builder $query, string $key, string|null|int|float $value)
+     * @method static Builder whereRaw(Builder $query, string $column, string $operator, string|null|int|float $value, $boolean = 'and')
+     * @method static addArrayOfWheres(Builder $query, $columns, $boolean)
+     * @method static prepareValueAndOperator($value, $operator, $useDefault = false)
+     * @method static string decryptKey($column, $operator = '=')
      *
      * @return string
      */

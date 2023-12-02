@@ -1,6 +1,6 @@
 {
     "name": "managefaster/database",
-    "description": "Overaide model base eloqunt and database functionality with encryt function and uuid",
+    "description": "Override model base eloquent and database functionality with encrypt function and uuid",
     "type": "library",
     "license": "MIT",
     "autoload": {
@@ -15,7 +15,9 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {},
+    "require": {
+        "php": "^8.0.2"
+    },
     "extra": {
         "laravel": {
             "providers": [
