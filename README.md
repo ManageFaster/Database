@@ -1,6 +1,6 @@
-# Database encrypt v1.0.2
+# Database encrypt v1.1.0
 
-## Instalation
+## Installation
 ```
 Run command: composer require managefaster/database
 
