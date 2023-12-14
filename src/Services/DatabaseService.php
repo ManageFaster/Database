@@ -35,7 +35,7 @@ class DatabaseService
     }
 
     public function decrypt(string|null|int|float $value) {
-        return DB::select(DB::raw("SELECT {$this->decryptString($value)} AS decrypted_value"))[0]->decrypted_value;
+        return DB::select("SELECT {$this->decryptString($value)} AS decrypted_value")[0]->decrypted_value;
     }
 
     public function whereRaw(Builder $query, string $column, string $operator, string|null|int|float $value, $boolean = 'and'): Builder {
