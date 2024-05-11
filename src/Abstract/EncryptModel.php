@@ -4,6 +4,8 @@ namespace Managefaster\Database\Abstract;
 
 use Illuminate\Database\Eloquent\Model;
 use Managefaster\Database\Facades\Database;
+use Illuminate\Database\Query\Grammars\Grammar;
+use function PHPUnit\Framework\isInstanceOf;
 
 abstract class EncryptModel extends Model
 {
@@ -30,6 +32,10 @@ abstract class EncryptModel extends Model
 
     public function getAttribute($key) {
         $value = parent::getAttribute($key);
+
+        if($value instanceof \Illuminate\Database\Query\Expression) {
+            $value = $value->getValue(new Grammar());
+        }
 
         // Check if the field is in the $encrypts array and needs decryption
         if ($this->checkIfAttributeIsEncrypted($key) && !is_null($value) && preg_match('/^[0-9a-fA-F]+$/', $value)) {
@@ -70,4 +76,6 @@ abstract class EncryptModel extends Model
 
         return $this->scopeWhereEncrypted($query, $column, $operator, $value);
     }
+
+
 }
